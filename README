@@ -1,2 +1,5 @@
 Hier schreiben wir die Commands, die man lokal ausführen muss:
--Starte dein PC
+
+- navigate to project directory
+- build image:
+  docker build -t <<project-name>> .
