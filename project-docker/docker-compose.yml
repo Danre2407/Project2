@@ -10,4 +10,4 @@ services:
     volumes:
       - type: bind
         source: ./flask
-        target: /app
+        # target: /app
