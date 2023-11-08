@@ -1,8 +1,8 @@
-# FROM python:3.8-slim-buster
-FROM ubuntu:22.04
+FROM python:3.8-slim-buster
+# FROM ubuntu:22.04
 
 # Create app directory
-# WORKDIR /app
+WORKDIR /app
 
 # Create a directory in the container to copy the folder into
 RUN mkdir /game-store
@@ -10,8 +10,7 @@ RUN mkdir /game-store
 # Copy the folder from your host machine to the container
 COPY /game-store /game-store
 
-# Get the files
-# COPY /game-store/requeriments.txt requeriments.txt
+EXPOSE 5000
 
 # Install dependencies
 RUN apt-get update
