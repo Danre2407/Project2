@@ -1,13 +1,26 @@
 version: '3'
+
 services:
-  web:
+  rest-service:
     build: flask
     ports:
-      - '5002:5000'
+      - "5001:5000"
+    depends_on:
+      - postgres
+    # Other configuration options for your REST service
+
+  postgres:
+    image: postgres:latest  # Use the official PostgreSQL image
     environment:
-      - FLASK_APP=app.py
-      - FLASK_ENV=development
+      POSTGRES_USER: smart_kids
+      POSTGRES_PASSWORD: smart_k1ds
+      POSTGRES_DB: database_project_2
     volumes:
       - type: bind
         source: ./flask
-        # target: /app
+        target: /app
+   #   - ./path/to/store/postgres/data:/var/lib/postgresql/data  # Persist data
+    ports:
+      - "5432:5432"
+    # Other PostgreSQL configuration options
+
