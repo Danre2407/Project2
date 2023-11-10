@@ -19,8 +19,9 @@ services:
       - mynet
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
+      - ./init-scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
-      - POSTGRES_DB=practica
+      # - POSTGRES_DB=practica
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:

@@ -15,7 +15,7 @@ db_password = 'postgres'
 DATABASE_URI = os.environ.get('DATABASE_URI', f"postgresql://{db_user}:{db_password}@postgres:5432/practica")
 
 def create_api():
-    time.sleep(5) # Wait for the database to be ready
+    time.sleep(8) # Wait for the database to be ready
     api = Flask(__name__)
     api.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
     api.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
