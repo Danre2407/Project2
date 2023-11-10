@@ -54,21 +54,21 @@ with api.app_context():
 
     game1 = Game(name="Persona 5 Royal", available_quantity=10, category=category1, photo_url="https://m.media-amazon.com/images/I/71lQbeZ5LFL.__AC_SX300_SY300_QL70_ML2_.jpg", tags=[tag2,tag6])
     game2 = Game(name="Final Fantasy VII Remake", available_quantity=10, category=category1, photo_url="https://m.media-amazon.com/images/I/81W8CAno24L.__AC_SX300_SY300_QL70_ML2_.jpg", tags=[tag2])
-    # game3 = Game(name="Resident Evil 4 Remake", available_quantity=10, category=category1, photo_url="https://m.media-amazon.com/images/I/71X0kpkEnML.__AC_SX300_SY300_QL70_ML2_.jpg", tags=[tag1,tag5])
-    # game4 = Game(name="Hogwarts Legacy", available_quantity=34, category=category1, photo_url="https://m.media-amazon.com/images/I/811m+JsGAzL._AC_SX679_.jpg", tags=[tag1,tag2])
+    game3 = Game(name="Resident Evil 4 Remake", available_quantity=10, category=category1, photo_url="https://m.media-amazon.com/images/I/71X0kpkEnML.__AC_SX300_SY300_QL70_ML2_.jpg", tags=[tag1,tag5])
+    game4 = Game(name="Hogwarts Legacy", available_quantity=34, category=category1, photo_url="https://m.media-amazon.com/images/I/811m+JsGAzL._AC_SX679_.jpg", tags=[tag1,tag2])
  
     db.session.add(game1)
     db.session.add(game2)
-    # db.session.add(game3)
-    # db.session.add(game4)
+    db.session.add(game3)
+    db.session.add(game4)
 
     db.session.commit()
 
     order1 = Order(games=[game1,game2], user=user1, address='Campus de Montegancedo, Escuela Técnica Superior de Ingenieros Informáticos', status='sent')
-    # order2 = Order(games=[game2,game3], user=user2, address='Campus de Montegancedo, CAIT', status='pending')
+    order2 = Order(games=[game2,game3], user=user2, address='Campus de Montegancedo, CAIT', status='pending')
    
     db.session.add(order1)
-    # db.session.add(order2)
+    db.session.add(order2)
 
     db.session.commit()
 
