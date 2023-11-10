@@ -9,6 +9,7 @@ import os
 import time
 
 db_user = 'postgres'
+#env-saved password through terminal on pc
 db_password = 'postgres'
 
 # Update the database URI to use the service name 'postgres'
