@@ -6,13 +6,16 @@ from controller.tagResource import tags
 from controller.gameResource import games
 from controller.orderResource import orders
 import os
+import time
 
-db_user = 'aws'
-db_password = 'flaskroot'
+db_user = 'postgres'
+db_password = 'postgres'
 
-DATABASE_URI = os.environ.get('DATABASE_URI', f"postgresql://{db_user}:{db_password}@localhost/practica")
+# Update the database URI to use the service name 'postgres'
+DATABASE_URI = os.environ.get('DATABASE_URI', f"postgresql://{db_user}:{db_password}@postgres:5432/practica")
 
 def create_api():
+    time.sleep(5) # Wait for the database to be ready
     api = Flask(__name__)
     api.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
     api.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -25,4 +28,3 @@ def create_api():
     api.register_blueprint(tags)
 
     return api
-

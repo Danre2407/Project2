@@ -87,7 +87,7 @@ def handle_exception(e):
 
 if __name__ == '__main__':
     api.register_error_handler(Exception, handle_exception)
-    api.run(port=8000, debug=True)
+    api.run(debug=True, host="0.0.0.0")
 
 @api.after_request
 def add_EC2_instance_header(response):
