@@ -15,15 +15,21 @@ services:
     networks:
       - mynet
     volumes:
-      - ./data/postgres:/var/lib/postgresql/data
-      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgres-data:/var/lib/postgresql/data
+    env_file:
+      - .env
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_PASSWORD=${POSTGRES_DB}
       - POSTGRES_DB=practica
     ports:
       - 5432:5432
 
+volumes:
+  postgres-data: 
+    # driver: local
+
 networks:
   mynet:
     driver: bridge
+
