@@ -6,12 +6,9 @@ services:
     networks:
       - mynet
     ports:
-      - 8000:8080
+      - 8000:5000
     depends_on:
       - postgres
-    # command: >
-    #   sh -c "sleep 10 && /usr/bin/python /game-store/initAlechemy.py"
-
 
   postgres:
     image: postgres:latest
@@ -19,11 +16,11 @@ services:
       - mynet
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
-      - ./init-scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
-      # - POSTGRES_DB=practica
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=practica
     ports:
       - 5432:5432
 

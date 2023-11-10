@@ -20,4 +20,4 @@ RUN apt-get install -y python3-pip
 RUN pip3 install -r /game-store/requeriments.txt
 
 # Run apiAlchemy.py when the container launches
-CMD ["python3", "/game-store/initAlchemy.py"]
+CMD ["python3", "/game-store/initAlchemy.py", "run", "--host", "0.0.0.0", "--port", "5000"]
