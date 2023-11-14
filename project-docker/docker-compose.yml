@@ -11,20 +11,21 @@ services:
       - postgres
 
   postgres:
+    container_name: my_postgres_container
     image: postgres:latest
     networks:
       - mynet
     volumes:
-      - ./data/postgres:/var/lib/postgresql/data
-  
-    env_file:
-      - .env
+      - postgres-data:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=${POSTGRES_DB}
       - POSTGRES_DB=practica
     ports:
       - 5432:5432
+
+volumes:
+  postgres-data: 
 
 networks:
   mynet:
